@@ -115,8 +115,6 @@
 
 /* Modal Styling */
 #modal {
-    display: none;
-    /* Hidden by default */
     position: fixed;
     top: 0;
     left: 0;
@@ -128,16 +126,18 @@
     z-index: 1000;
     opacity: 0;
     /* Start with 0 opacity */
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    visibility: hidden;
+    /* Start hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     /* Smooth transitions */
 }
 
 /* Modal when visible */
 #modal.open {
-    display: flex;
-    /* Show the modal */
     opacity: 1;
     /* Fully visible */
+    visibility: visible;
+    /* Show the modal */
 }
 
 /* Modal Image */
@@ -219,4 +219,42 @@ ul li:hover {
     /* Lift on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     /* Deeper shadow on hover */
+}
+
+/* Hide Scrollbar */
+.scrollbar-hide {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, and Opera */
+}
+
+/* Mobile Tooltip */
+#mobile-tooltip {
+    position: absolute;
+    top: -40px;
+    /* Adjust position as needed */
+    right: 0;
+    background-color: #FF6B6B;
+    /* Soft pink color */
+    color: white;
+    font-size: 0.875rem;
+    /* 14px */
+    padding: 4px 8px;
+    border-radius: 4px;
+    opacity: 0;
+    /* Start hidden */
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    /* Prevent tooltip from blocking clicks */
+}
+
+#mobile-tooltip.show {
+    opacity: 1;
+    /* Show tooltip */
 }

@@ -4,39 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hagar's Gallery</title>
+    <title>Hagar's Gallery!</title>
 
     <!-- General Meta Tags -->
-    <meta name="description"
-        content="Hey, I’m Hagar! I’m an artist who thrives on exploring new challenges, experimenting with art styles, and embracing creativity one brushstroke at a time. 🎨✨">
+    <meta name="description" content="Hey, I’m Hagar! I’m an artist who thrives on exploring new challenges, experimenting with art styles, and embracing creativity one brushstroke at a time. 🎨✨">
     <meta name="author" content="Hagar">
     <meta name="keywords" content="Hagar, Art Gallery, Artist, Creativity, Paintings, Digital Art">
-
+    
     <!-- Open Graph Meta Tags for Social Sharing -->
     <meta property="og:title" content="Welcome to Hagar's Gallery!">
-    <meta property="og:description"
-        content="Hey, I’m Hagar! I’m an artist who thrives on exploring new challenges, experimenting with art styles, and embracing creativity one brushstroke at a time. 🎨✨">
-    <meta property="og:image" content="https://example.com/static/hagar.jpg">
-    <meta property="og:url" content="https://example.com">
+    <meta property="og:description" content="Hey, I’m Hagar! I’m an artist who thrives on exploring new challenges, experimenting with art styles, and embracing creativity one brushstroke at a time. 🎨✨">
+    <meta property="og:image" content="https://zikacodez.github.io/HagarsGallery/static/hagar.jpg">
+    <meta property="og:url" content="https://zikacodez.github.io/HagarsGallery">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Hagar's Gallery">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Welcome to Hagar's Gallery!">
-    <meta name="twitter:description"
-        content="Hey, I’m Hagar! I’m an artist who thrives on exploring new challenges, experimenting with art styles, and embracing creativity one brushstroke at a time. 🎨✨">
-    <meta name="twitter:image" content="https://example.com/static/hagar.jpg">
+    <meta name="twitter:description" content="Hey, I’m Hagar! I’m an artist who thrives on exploring new challenges, experimenting with art styles, and embracing creativity one brushstroke at a time. 🎨✨">
+    <meta name="twitter:image" content="https://zikacodez.github.io/HagarsGallery/static/hagar.jpg">
     <meta name="twitter:site" content="@HagarsGallery">
     <meta name="twitter:creator" content="@HagarsGallery">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/jpg" href="https://example.com/static/logo.jpg">
+    <link rel="icon" type="image/jpg" href="https://zikacodez.github.io/HagarsGallery/static/logo.jpg">
 
     <!-- External Styles and Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./static/style.css"> <!-- Link to external CSS -->
@@ -55,22 +50,29 @@
         <div class="flex items-center space-x-4">
             <img src="./static/bgmusic.jpg" alt="Music Icon" class="w-12 h-12 rounded-lg">
             <button id="music-toggle"
-                class="p-3 bg-pink-700 text-white rounded-full shadow-lg hover:bg-pink-800 transition-colors">
+                class="p-3 bg-pink-700 text-white rounded-full shadow-lg hover:bg-pink-800 transition-colors"
+                aria-label="Toggle Music">
                 <i id="play-icon" class="fas fa-play"></i>
             </button>
-            <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.1" class="w-24">
+            <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.1" class="w-24"
+                aria-label="Volume Control">
         </div>
     </div>
 
     <!-- Mobile Music Player -->
     <div id="mobile-music-player" class="md:hidden fixed bottom-4 right-4 z-50">
         <div class="bg-pink-600/90 backdrop-blur-sm rounded-full shadow-lg p-2">
-            <button id="mobile-music-toggle" class="relative w-16 h-16 rounded-full overflow-hidden">
+            <button id="mobile-music-toggle" class="relative w-16 h-16 rounded-full overflow-hidden"
+                aria-label="Toggle Music">
                 <img id="music-icon" src="./static/bgmusic.jpg" alt="Music Icon" class="w-full h-full object-cover">
                 <div class="absolute inset-0 flex items-center justify-center bg-black/30 rounded-full">
                     <i id="mobile-play-icon" class="fas fa-play text-white"></i>
                 </div>
             </button>
+            <div id="mobile-tooltip"
+                class="absolute -top-10 right-0 bg-pink-700 text-white text-sm px-2 py-1 rounded-md opacity-0 transition-opacity duration-300">
+                Toggle Music
+            </div>
         </div>
     </div>
 
@@ -103,7 +105,7 @@
     </section>
 
     <!-- Artist Picks Section -->
-    <section class="container mx-auto px-6 py-12 text-center">
+    <section id="artist-picks" class="container mx-auto px-6 py-12 text-center">
         <!-- Section Title -->
         <h2 class="funky-heading text-3xl md:text-4xl mb-8 animate-fadeInUp" style="color: #FFD700;">Artist Picks</h2>
         <div class="flex justify-center overflow-x-auto scrollbar-hide space-x-4 pb-4">
@@ -144,19 +146,19 @@
     </section>
 
     <!-- Creative Surprise Section -->
-    <section class="container mx-auto px-6 py-12 text-center">
+    <section id="behind-the-canvas" class="w-full md:w-3/4 lg:w-1/2 mx-auto px-4 py-12 text-center">
         <!-- Section Title -->
-        <h2 class="funky-heading text-3xl md:text-4xl mb-8 animate-fadeInUp" style="color: #FFD700;">Behind the Canvas
+        <h2 class="funky-heading text-2xl md:text-4xl mb-8 animate-fadeInUp" style="color: #FFD700;">Behind the Canvas
             🎨✨</h2>
-        <div class="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto animate-scaleIn">
-            <p class="text-lg text-gray-900 mb-6">
+        <div class="bg-white rounded-lg shadow-lg p-6 md:p-8 mx-auto animate-scaleIn w-full">
+            <p class="text-base md:text-lg text-gray-900 mb-6">
                 Ever wondered what goes on in an artist’s mind? Here’s a sneak peek into my creative process:
             </p>
-            <ul class="text-left text-gray-900 list-none space-y-4">
+            <ul class="text-left text-gray-900 list-none space-y-4 w-full">
                 <!-- Process 1 -->
-                <li class="flex items-start">
+                <li class="flex items-start w-full">
                     <span class="emoji-icon">🎨</span>
-                    <div>
+                    <div class="ml-2 w-full">
                         <strong class="text-pink-600">It starts out of nowhere:</strong> Most of my sketches happen
                         spontaneously, especially when I’m drawing on paper. You’d find me doodling in the middle of
                         studying just to clear my mind. That’s why most of my sketches are on <span
@@ -164,9 +166,9 @@
                     </div>
                 </li>
                 <!-- Process 2 -->
-                <li class="flex items-start">
+                <li class="flex items-start w-full">
                     <span class="emoji-icon">☕</span>
-                    <div>
+                    <div class="ml-2 w-full">
                         <strong class="text-purple-600">Setting the mood:</strong> When I’m working on digital art, I
                         make sure to set the vibe. I’d make myself an <span class="canvas-highlight">iced coffee</span>
                         or grab a <span class="canvas-highlight">Red Bull</span> (depending on the budget 😅). Then, I’d
@@ -175,9 +177,9 @@
                     </div>
                 </li>
                 <!-- Process 3 -->
-                <li class="flex items-start">
+                <li class="flex items-start w-full">
                     <span class="emoji-icon">🎶</span>
-                    <div>
+                    <div class="ml-2 w-full">
                         <strong class="text-blue-600">Music is everything:</strong> My music taste has changed over the
                         years, but back then, I was obsessed with <span class="canvas-highlight">Conan Gray</span>—he’s
                         the only constant. I’d also listen to artists like <span class="canvas-highlight">Keshi</span>
@@ -188,9 +190,9 @@
                     </div>
                 </li>
                 <!-- Process 4 -->
-                <li class="flex items-start">
+                <li class="flex items-start w-full">
                     <span class="emoji-icon">🎨</span>
-                    <div>
+                    <div class="ml-2 w-full">
                         <strong class="text-green-600">Color palette struggles:</strong> I didn’t have a fixed approach
                         to colors. If I was drawing a character, I’d stick to their <span class="canvas-highlight">main
                             colors</span>. Otherwise, I’d just pick colors that looked good together and complemented
@@ -201,16 +203,16 @@
                     </div>
                 </li>
                 <!-- Process 5 -->
-                <li class="flex items-start">
+                <li class="flex items-start w-full">
                     <span class="emoji-icon">⏳</span>
-                    <div>
+                    <div class="ml-2 w-full">
                         <strong class="text-orange-600">No breaks allowed:</strong> I never liked leaving a piece
                         unfinished. Once I started, I had to finish it in one go. Stepping away would take me out of the
                         <span class="canvas-highlight">mood</span> I worked so hard to get into.
                     </div>
                 </li>
             </ul>
-            <p class="text-lg text-gray-900 mt-8">
+            <p class="text-base md:text-lg text-gray-900 mt-8">
                 Art isn’t just about the final piece—it’s about the <span class="canvas-highlight">journey</span>, the
                 <span class="canvas-highlight">mood</span>, and the little quirks that make it unique. Let’s create
                 something unforgettable! 🚀✨
@@ -219,8 +221,13 @@
     </section>
 
     <!-- Modal -->
-    <div id="modal" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
-        <img id="modal-img" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl" src="" alt="Full Image">
+    <div id="modal" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+        <div class="relative">
+            <button id="close-modal"
+                class="absolute -top-8 right-0 text-white text-3xl hover:text-pink-500 transition-colors"
+                aria-label="Close Modal">×</button>
+            <img id="modal-img" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl" src="" alt="Full Image">
+        </div>
     </div>
 
     <!-- JavaScript -->

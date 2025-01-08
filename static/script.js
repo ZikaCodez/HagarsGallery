@@ -21,6 +21,9 @@ const galleryContainer = document.getElementById('gallery');
 const seeMoreButton = document.getElementById('seeMore');
 const modal = document.getElementById('modal');
 const modalImg = document.getElementById('modal-img');
+const closeModalButton = document.getElementById('close-modal');
+const mobileTooltip = document.getElementById('mobile-tooltip');
+const mobileMusicToggle = document.getElementById('mobile-music-toggle');
 
 // Function to load images into the gallery
 function loadImages(count) {
@@ -75,23 +78,21 @@ seeMoreButton.addEventListener('click', () => {
     }
 });
 
-// Add event listeners to Artist Picks overlays
-document.querySelectorAll('.overlay').forEach((overlay) => {
-    overlay.addEventListener('click', function () {
-        openModal(this.dataset.url); // Open modal with the image URL
-    });
-});
-
 // Function to open the modal
 function openModal(imageUrl) {
     modalImg.src = imageUrl; // Set the image source
     modal.classList.add('open'); // Add 'open' class for animation
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
 }
 
 // Function to close the modal
 function closeModal() {
     modal.classList.remove('open'); // Remove 'open' class for animation
+    document.body.style.overflow = 'auto'; // Restore scrolling when modal is closed
 }
+
+// Close modal when clicking the close button
+closeModalButton.addEventListener('click', closeModal);
 
 // Close modal when clicking outside the image
 modal.addEventListener('click', (e) => {
@@ -107,10 +108,32 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Add event listeners to Artist Picks overlays
+document.querySelectorAll('#artist-picks .overlay').forEach((overlay) => {
+    overlay.addEventListener('click', function () {
+        openModal(this.dataset.url); // Open modal with the image URL
+    });
+});
+
+// Function to show the mobile tooltip
+function showTooltip() {
+    mobileTooltip.classList.add('show'); // Show tooltip
+    setTimeout(() => {
+        mobileTooltip.classList.remove('show'); // Hide tooltip after 2 seconds
+    }, 2000);
+}
+
+// Show tooltip when the page loads (after a short delay)
+window.addEventListener('load', () => {
+    setTimeout(showTooltip, 1000); // Show tooltip 1 second after page load
+});
+
+// Show tooltip when the mobile music player button is clicked
+mobileMusicToggle.addEventListener('click', showTooltip);
+
 // Music Toggle Functionality
 const music = document.getElementById('background-music');
 const musicToggle = document.getElementById('music-toggle');
-const mobileMusicToggle = document.getElementById('mobile-music-toggle');
 const playIcon = document.getElementById('play-icon');
 const mobilePlayIcon = document.getElementById('mobile-play-icon');
 const musicIcon = document.getElementById('music-icon');
