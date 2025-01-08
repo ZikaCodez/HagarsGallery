@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hagar's Gallery</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- FontAwesome -->
+    <link rel="icon" type="image/jpg" href="./static/logo.jpg">
+    <link rel="stylesheet" href="./static/style.css"> <!-- Link to external CSS -->
+</head>
+
+<body class="bg-gradient-to-r from-pink-500 to-purple-600 body-text text-gray-800">
+
+    <!-- Fixed Music Player (Desktop) -->
+    <div id="desktop-music-player"
+        class="hidden md:flex fixed top-4 right-4 bg-pink-600/90 backdrop-blur-sm rounded-lg shadow-lg p-4 animate-slideInRight z-50">
+        <audio id="background-music" loop>
+            <source src="./static/bgmusic.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="flex items-center space-x-4">
+            <img src="./static/bgmusic.jpg" alt="Music Icon" class="w-12 h-12 rounded-lg">
+            <button id="music-toggle"
+                class="p-3 bg-pink-700 text-white rounded-full shadow-lg hover:bg-pink-800 transition-colors">
+                <i id="play-icon" class="fas fa-play"></i>
+            </button>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.1" class="w-24">
+        </div>
+    </div>
+
+    <!-- Mobile Music Player -->
+    <div id="mobile-music-player" class="md:hidden fixed bottom-4 right-4 z-50">
+        <div class="bg-pink-600/90 backdrop-blur-sm rounded-full shadow-lg p-2">
+            <button id="mobile-music-toggle" class="relative w-16 h-16 rounded-full overflow-hidden">
+                <img id="music-icon" src="./static/bgmusic.jpg" alt="Music Icon" class="w-full h-full object-cover">
+                <div class="absolute inset-0 flex items-center justify-center bg-black/30 rounded-full">
+                    <i id="mobile-play-icon" class="fas fa-play text-white"></i>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!-- Artist's Profile Section -->
+    <section class="container mx-auto px-6 py-12 text-center">
+        <div class="flex flex-col items-center md:flex-row md:justify-center md:items-start animate-fadeInUp">
+            <!-- Artist Image -->
+            <img src="./static/hagar.jpg" alt="Hagar"
+                class="w-40 h-40 md:w-48 md:h-48 rounded-full shadow-lg mb-6 md:mb-0 md:mr-8 animate-scaleIn">
+            <!-- Artist Name, Quote, and Bio -->
+            <div class="text-center md:text-left">
+                <!-- Artist Name -->
+                <h1 class="funky-heading text-4xl md:text-5xl mb-4 animate-slideInLeft" style="color: #FF8C42;">Hagar
+                </h1>
+                <!-- Artist Quote -->
+                <p class="bold-heading text-xl md:text-2xl mb-6 animate-slideInRight" style="color: #FFD1DC;">"Be the
+                    type of person you want to meet."</p>
+                <!-- Biography Text -->
+                <p class="text-lg max-w-2xl mx-auto md:mx-0 animate-fadeInUp" style="color: white;">
+                    Hey, I’m Hagar! I’m an <span class="highlight">artist</span> who thrives on exploring <span
+                        class="highlight">new challenges</span>, whether it’s experimenting with different <span
+                        class="highlight">art styles</span> or diving into <span class="highlight">new mediums</span>.
+                    The catch? If I feel like I’m not good at something—even if it’s my first attempt—I tend to step
+                    back (though I’m working on fixing that habit!). Art, for me, is all about <span
+                        class="highlight">growth</span>, <span class="highlight">creativity</span>, and embracing the
+                    journey, one brushstroke at a time. 🎨✨
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artist Picks Section -->
+    <section class="container mx-auto px-6 py-12 text-center">
+        <!-- Section Title -->
+        <h2 class="funky-heading text-3xl md:text-4xl mb-8 animate-fadeInUp" style="color: #FFD700;">Artist Picks</h2>
+        <div class="flex justify-center overflow-x-auto scrollbar-hide space-x-4 pb-4">
+            <!-- Artist Pick 1 -->
+            <div class="relative w-48 h-64 overflow-hidden rounded-lg shadow-md hover-grow animate-slideInLeft mt-3">
+                <img src="https://iili.io/2gUqIoB.jpg" alt="Pick 1" class="w-full h-full object-cover">
+                <div class="overlay" data-url="https://iili.io/2gUqIoB.jpg">
+                    <p>View full image</p>
+                </div>
+            </div>
+            <!-- Artist Pick 2 -->
+            <div class="relative w-48 h-64 overflow-hidden rounded-lg shadow-md hover-grow animate-fadeInUp mt-3">
+                <img src="https://iili.io/2gUqowQ.jpg" alt="Pick 2" class="w-full h-full object-cover">
+                <div class="overlay" data-url="https://iili.io/2gUqowQ.jpg">
+                    <p>View full image</p>
+                </div>
+            </div>
+            <!-- Artist Pick 3 -->
+            <div class="relative w-48 h-64 overflow-hidden rounded-lg shadow-md hover-grow animate-slideInRight mt-3">
+                <img src="https://iili.io/2gUq7Sa.jpg" alt="Pick 3" class="w-full h-full object-cover">
+                <div class="overlay" data-url="https://iili.io/2gUq7Sa.jpg">
+                    <p>View full image</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="container mx-auto px-6 py-12 text-center">
+        <!-- Section Title -->
+        <h2 class="funky-heading text-3xl md:text-4xl mb-8 animate-fadeInUp" style="color: #FFD700;">Gallery</h2>
+        <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Images will be loaded here by JavaScript -->
+        </div>
+        <button id="seeMore"
+            class="mt-8 px-6 py-3 bg-pink-700 text-white rounded-full shadow-lg hover:bg-pink-800 transition-colors animate-fadeInUp">See
+            More</button>
+    </section>
+
+    <!-- Creative Surprise Section -->
+    <section class="container mx-auto px-6 py-12 text-center">
+        <!-- Section Title -->
+        <h2 class="funky-heading text-3xl md:text-4xl mb-8 animate-fadeInUp" style="color: #FFD700;">Behind the Canvas
+            🎨✨</h2>
+        <div class="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto animate-scaleIn">
+            <p class="text-lg text-gray-900 mb-6">
+                Ever wondered what goes on in an artist’s mind? Here’s a sneak peek into my creative process:
+            </p>
+            <ul class="text-left text-gray-900 list-none space-y-4">
+                <!-- Process 1 -->
+                <li class="flex items-start">
+                    <span class="emoji-icon">🎨</span>
+                    <div>
+                        <strong class="text-pink-600">It starts out of nowhere:</strong> Most of my sketches happen
+                        spontaneously, especially when I’m drawing on paper. You’d find me doodling in the middle of
+                        studying just to clear my mind. That’s why most of my sketches are on <span
+                            class="canvas-highlight">lined paper</span>, not sketchbooks!
+                    </div>
+                </li>
+                <!-- Process 2 -->
+                <li class="flex items-start">
+                    <span class="emoji-icon">☕</span>
+                    <div>
+                        <strong class="text-purple-600">Setting the mood:</strong> When I’m working on digital art, I
+                        make sure to set the vibe. I’d make myself an <span class="canvas-highlight">iced coffee</span>
+                        or grab a <span class="canvas-highlight">Red Bull</span> (depending on the budget 😅). Then, I’d
+                        prepare everything, only to realize I’m stuck with an art block. That’s when I turn to <span
+                            class="canvas-highlight">Pinterest</span> for some inspiration before I start.
+                    </div>
+                </li>
+                <!-- Process 3 -->
+                <li class="flex items-start">
+                    <span class="emoji-icon">🎶</span>
+                    <div>
+                        <strong class="text-blue-600">Music is everything:</strong> My music taste has changed over the
+                        years, but back then, I was obsessed with <span class="canvas-highlight">Conan Gray</span>—he’s
+                        the only constant. I’d also listen to artists like <span class="canvas-highlight">Keshi</span>
+                        and <span class="canvas-highlight">SUGGI</span>. Their music is calm, soothing, and perfect for
+                        getting into the zone. Sometimes I’d use <span class="canvas-highlight">headphones</span> to
+                        fully immerse myself, and other times I’d play it out loud. But most of the time, I’d focus on
+                        the <span class="canvas-highlight">instruments</span> and let the music guide my mood.
+                    </div>
+                </li>
+                <!-- Process 4 -->
+                <li class="flex items-start">
+                    <span class="emoji-icon">🎨</span>
+                    <div>
+                        <strong class="text-green-600">Color palette struggles:</strong> I didn’t have a fixed approach
+                        to colors. If I was drawing a character, I’d stick to their <span class="canvas-highlight">main
+                            colors</span>. Otherwise, I’d just pick colors that looked good together and complemented
+                        each other. Back then, I didn’t understand <span class="canvas-highlight">color theory</span> or
+                        <span class="canvas-highlight">shadows</span>—I just went with what felt right. Let me tell you,
+                        color theory is a <span class="canvas-highlight">pain in the ass</span>! I was clueless about
+                        it, so I didn’t follow any rules.
+                    </div>
+                </li>
+                <!-- Process 5 -->
+                <li class="flex items-start">
+                    <span class="emoji-icon">⏳</span>
+                    <div>
+                        <strong class="text-orange-600">No breaks allowed:</strong> I never liked leaving a piece
+                        unfinished. Once I started, I had to finish it in one go. Stepping away would take me out of the
+                        <span class="canvas-highlight">mood</span> I worked so hard to get into.
+                    </div>
+                </li>
+            </ul>
+            <p class="text-lg text-gray-900 mt-8">
+                Art isn’t just about the final piece—it’s about the <span class="canvas-highlight">journey</span>, the
+                <span class="canvas-highlight">mood</span>, and the little quirks that make it unique. Let’s create
+                something unforgettable! 🚀✨
+            </p>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
+        <img id="modal-img" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl" src="" alt="Full Image">
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./static/script.js"></script>
+</body>
+
+</html>
