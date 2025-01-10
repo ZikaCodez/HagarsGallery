@@ -14,6 +14,8 @@ const images = [
     { id: 'img13', url: 'https://iili.io/2gUqlNR.jpg' },
     { id: 'img14', url: 'https://iili.io/2gUq0tp.jpg' },
     { id: 'img15', url: 'https://iili.io/2gUqEoN.jpg' },
+    { id: 'img16', url: 'https://iili.io/2rOhCmX.jpg' },
+    { id: 'img17', url: 'https://iili.io/2gUqowQ.jpg' },
 ];
 
 let displayed = 0;
